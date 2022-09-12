@@ -1,0 +1,62 @@
+@import "../GeneralStyle/reset.css";
+/*CADASTRO*/
+.cadastro {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 20px;
+}
+.cadastro .coluna1 h2 {
+  text-align: center;
+  font-family: Lemon;
+  color: black;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 35px;
+  line-height: 58px;
+}
+.cadastro .coluna1 img {
+  height: 207px;
+  width: 200px;
+}
+.cadastro form h2 {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  color: black;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 35px;
+  line-height: 58px;
+}
+.cadastro input {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  color: #000;
+  padding: 10px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  border: 1px solid #000;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+.cadastro button {
+  background-color: #a66cff;
+  color: #ffffff;
+  border: #a66cff;
+  width: 200px;
+  height: 40px;
+  left: 560.07px;
+  top: 650.89px;
+  box-shadow: #000;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
+    drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}

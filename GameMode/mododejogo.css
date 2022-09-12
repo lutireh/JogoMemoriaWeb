@@ -1,5 +1,4 @@
-@import "reset.css";
-
+@import "../GeneralStyle/reset.css";
 body{
     display: flex;
     flex-direction: column;

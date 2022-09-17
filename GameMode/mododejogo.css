@@ -4,6 +4,10 @@ body{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    font-family: "Lato", sans-serif;
+    color: white;
+    font-weight: bolder;
+
 }
 header{
     padding: 10px;
@@ -28,6 +32,13 @@ input[type=button]{
     background-color: #5B4B8A ;
     border-radius: 60px;
     border: none;
+    width: 50%;
+    margin: 10px;
+    color: white;
+    font-size: 16px;
+}
+input[type=button]:hover{
+    background-color: #00F836 ;
 
 }
 .conteiner{
@@ -36,16 +47,44 @@ input[type=button]{
     border: 6px solid #5B4B8A;
     border-radius: 60px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.row{
+    width: 100%;
+    height: 100%;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding: 1%;    
+    padding: 1%;  
 }
 .options{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     height: 50px;
     width: 100px;
     border-radius: 10px;
     background-color: #5B4B8A ;
     text-align: center;
+    text-justify: center;
     border-radius: 60px;
+}
+.play{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.title{
+    font-size: 48px;
+
+}
+.subtitle{
+    font-size: 32px;
 }

@@ -1,8 +1,51 @@
-@import "reset.css";
-
+@import "../GeneralStyle/reset.css";
 body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+header{
+    padding: 10px;
+    height: 15%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+main{
+    height: 70vh;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+footer{
+    height: 15%;
+}
+input[type=button]{
+    background-color: #5B4B8A ;
+    border-radius: 60px;
+    border: none;
+
+}
+.conteiner{
+    height: 40%;
+    width: 100%;
+    border: 6px solid #5B4B8A;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1%;    
+}
+.options{
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: #5B4B8A ;
+    text-align: center;
+    border-radius: 60px;
 }

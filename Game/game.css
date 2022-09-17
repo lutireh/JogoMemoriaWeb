@@ -1,23 +1,49 @@
-@import"../GameMode/reset.css";
+@import"../GeneralStyle/reset.css";
 body{
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    justify-content: space-between;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+main{
+    align-self: center;
+    align-items: center;
+    height: 80vh;
+    width: 50vw;
+}
+footer{
+    justify-self: flex-start;
+    align-self: flex-end;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: flex-end;
 }
 .board{
     display:grid;
+    align-items: center;
     grid-template-columns:auto auto;
+    grid-column-gap:10px;
+    grid-column-gap:10px;
+    padding: 5%;
     background-color: #5B4B8A;
-    width:100%;
-    height:100%;
+    opacity: 50%;
+    height: 100%;
     border-radius:10px;
-    opacity:50%;
 }
 .piece{
-    margin:10px;
     border-radius:10px;
-    background-color:yellow;
-    width:50%;
-    height:50%;
+    background-color:#5B4B8A;
+    opacity: 100%;
+    height: 80%;
+}
+.title{
+    align-self: center;
+}
+.timmer{
+    align-self: flex-end;
 }

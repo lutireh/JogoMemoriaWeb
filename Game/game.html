@@ -6,15 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo</title>
-    <script src="https://kit.fontawesome.com/6e11250ba0.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/cb2d5d7b81.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="game.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <header>
-        <p class="title">Classico</p>
         <p class="timmer">00:41</p>
+        <div class="tooltip"> 
+            <span class="tooltiptext" >Trapaça</span>
+            <i class="fa-solid fa-skull fa-2x margin-top" id="cheat"></i>
+        </div>
     </header>
     <main>
         <div class="board">
@@ -25,9 +27,15 @@
         </div>
     </main>
     <footer>
-        <i class="fa-user-gear" style="font-size:20px; color: white;"></i>       
-        <i class="fa-ranking-star" style="font-size:20px; color: white;"></i>
-        <i class="fa-right-from-bracket"style="font-size:20px; color: white;"></i>
+        <a href="">        
+            <i class="fa-solid fa-user-gear fa-2x"></i>
+        </a>
+        <a href="">
+            <i class="fa-solid fa-ranking-star fa-2x"></i>
+        </a>
+        <a href="../Auth/login.html">
+            <i class="fa-solid fa-right-from-bracket fa-2x"></i>
+        </a>
     </footer>
 </body>
 

@@ -41,6 +41,19 @@ input[type=button]:hover{
     background-color: #00F836 ;
 
 }
+a{
+    background-color: #5B4B8A ;
+    border-radius: 60px;
+    border: none;
+    height: 50%;
+    width: 100%;
+    margin: 10px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+}  
+
 .conteiner{
     height: 40%;
     width: 100%;
@@ -71,7 +84,6 @@ input[type=button]:hover{
     border-radius: 10px;
     background-color: #5B4B8A ;
     text-align: center;
-    text-justify: center;
     border-radius: 60px;
 }
 .play{

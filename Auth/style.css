@@ -27,7 +27,6 @@ a {
   margin-right: 30%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   align-items: center;
-  -webkit-border-radius: 20px;
   border-radius: 20px;
 }
 .login h2,
@@ -36,7 +35,7 @@ a {
   text-align: center;
   color: black;
   font-style: normal;
-  font-weight: 800;
+  font-weight: bolder;
   font-size: 35px;
   line-height: 58px;
   text-align: center;
@@ -46,12 +45,11 @@ a {
   width: 100%;
   box-sizing: border-box;
   text-align: left;
-  color: #000;
+  color: #000000;
   padding: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
-  border: 1px solid #000;
-  -webkit-border-radius: 10px;
+  border: 1px solid #000000;
   border-radius: 10px;
 }
 .login button,
@@ -64,8 +62,7 @@ a {
   height: 40px;
   left: 560.07px;
   top: 650.89px;
-  box-shadow: #000;
-  -webkit-border-radius: 10px;
+  box-shadow: 0 0 0 #000000;
   border-radius: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -74,7 +71,7 @@ a {
 }
 .login .forgot {
   margin: 20px;
-  font-weight: 800;
+  font-weight: bolder;
   font-size: 14px;
   line-height: 29px;
   text-align: center;
@@ -82,7 +79,7 @@ a {
 .login .forgot a {
   font-size: 14px;
   color: #a66cff;
-  font-weight: extrabold;
+  font-weight: bolder;
 }
 
 /*CADASTRO*/
@@ -101,7 +98,7 @@ a {
   font-family: Lemon;
   color: black;
   font-style: normal;
-  font-weight: 800;
+  font-weight: bolder;
   font-size: 35px;
   line-height: 58px;
 }
@@ -114,7 +111,7 @@ a {
   text-align: center;
   color: black;
   font-style: normal;
-  font-weight: 800;
+  font-weight: bolder;
   font-size: 35px;
   line-height: 58px;
 }
@@ -129,7 +126,6 @@ a {
   margin-bottom: 10px;
 
   border: 1px solid #000;
-  -webkit-border-radius: 10px;
   border-radius: 10px;
 }
 .cadastro button {
@@ -140,8 +136,7 @@ a {
   height: 40px;
   left: 560.07px;
   top: 650.89px;
-  box-shadow: #000;
-  -webkit-border-radius: 10px;
+  box-shadow:0 0 0 #000000;
   border-radius: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -173,8 +168,7 @@ a {
   height: 40px;
   left: 560.07px;
   top: 650.89px;
-  box-shadow: #000;
-  -webkit-border-radius: 10px;
+  box-shadow: 0 0 0 #000000;
   border-radius: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -187,7 +181,7 @@ a {
   text-align: center;
   color: black;
   font-style: normal;
-  font-weight: 800px;
+  font-weight: bolder;
   font-size: 35px;
   line-height: 58px;
 }
@@ -202,7 +196,7 @@ a {
   text-align: center;
   color: black;
   font-style: normal;
-  font-weight: 800px;
+  font-weight: bolder;
   font-size: 20px;
 }
 
@@ -222,7 +216,6 @@ a {
   border-style: solid; 
   border-color: #5B4B8A; 
   align-items: center;
-  -webkit-border-radius: 20px;
   border-radius: 20px;
 }
 .modo{
@@ -249,8 +242,7 @@ a {
   border: #a66cff;
   width: 100px;
   height: 40px;
-  box-shadow: #000;
-  -webkit-border-radius: 10px;
+  box-shadow: 0 0 0#000000;
   border-radius: 10px;
   padding-left: 20px;
   padding-right: 20px;

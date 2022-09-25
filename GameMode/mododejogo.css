@@ -32,6 +32,7 @@ input[type=button]{
     background-color: #5B4B8A ;
     border-radius: 60px;
     border: none;
+    height: 40%;
     width: 100%;
     margin: 10px;
     color: white;
@@ -45,15 +46,20 @@ a{
     background-color: #5B4B8A ;
     border-radius: 60px;
     border: none;
-    height: 50%;
+    height: 80%;
     width: 100%;
     margin: 10px;
     color: white;
     font-size: 16px;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
+} 
+a:hover{
+   background-color:#00F836 ;
 }  
-
 .conteiner{
     height: 40%;
     width: 100%;

@@ -11,8 +11,9 @@ a {
 .login,
 .cadastro,
 .historico,
+.ranking,
 .editarPerfil,
-.modoJogo{
+.modoJogo {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -136,7 +137,7 @@ a {
   height: 40px;
   left: 560.07px;
   top: 650.89px;
-  box-shadow:0 0 0 #000000;
+  box-shadow: 0 0 0 #000000;
   border-radius: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -144,27 +145,30 @@ a {
     drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-<<<<<<< HEAD
-/*Histórico e Ranking de Partidas*/
-=======
-/*Histórico de Partidas*/
->>>>>>> a63065636fbc96e54899b4b6ac1f315e7b6362d4
-.historico{
+/*Histórico de Partidas e Ranking*/
+.historico,
+.ranking {
   padding: 50px;
   border: 1px solid;
+  margin-left: 20%;
+  margin-right: 20%;
 }
-.historico table{
+
+.historico table,
+.ranking table {
   border-collapse: separate;
   border-spacing: 0px 16px;
   margin-top: -8px;
   border: #000;
-
 }
-.historico tr{
+
+.historico tr,
+.ranking tr {
   line-height: 40px;
 }
 
-.historico td{
+.historico td,
+.ranking td {
   background-color: #a66cff;
   color: #ffffff;
   border: #a66cff;
@@ -180,7 +184,8 @@ a {
     drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.historico h1{
+.historico h1,
+.ranking h1 {
   font-family: "Lato", sans-serif;
   text-align: center;
   color: black;
@@ -190,28 +195,20 @@ a {
   line-height: 58px;
 }
 
-<<<<<<< HEAD
-i{
+#colunaOpcao:hover {
+  background-color: #00f836;
+}
+i {
   font-size: 48px;
-  color:#5B4B8A;
-  margin-left:90%;
+  color: #5b4b8a;
+  margin-left: 90%;
 }
 
-/*Editar Perfil*/
-
-=======
->>>>>>> a63065636fbc96e54899b4b6ac1f315e7b6362d4
-.editarPerfil input{
-  margin-top:  10px;
-  margin-bottom:  10px;
-
+.editarPerfil input {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-<<<<<<< HEAD
-
-/*Modo de Jogo*/
-=======
->>>>>>> a63065636fbc96e54899b4b6ac1f315e7b6362d4
-.modoJogo h3{
+.modoJogo h3 {
   font-family: "Lato", sans-serif;
   text-align: center;
   color: black;
@@ -220,7 +217,7 @@ i{
   font-size: 20px;
 }
 
-.modo, 
+.modo,
 .tamTab {
   justify-content: center;
   flex-direction: column;
@@ -232,31 +229,31 @@ i{
   margin-left: 10px;
   margin-right: 10px;
   margin: 10px;
-  border-width: 2px; 
-  border-style: solid; 
-  border-color: #5B4B8A; 
+  border-width: 2px;
+  border-style: solid;
+  border-color: #5b4b8a;
   align-items: center;
   border-radius: 20px;
 }
-.modo{
+.modo {
   padding-left: 150px;
   padding-right: 150px;
 }
-.modo button{
+.modo button {
   background-color: #a66cff;
   color: #ffffff;
   border: #a66cff;
   width: 150px;
   height: 40px;
-  box-shadow:4px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   padding-left: 20px;
   padding-right: 20px;
   margin-bottom: 20px;
-  margin-right:20px;
+  margin-right: 20px;
 }
 
-.tamTab button{
+.tamTab button {
   background-color: #a66cff;
   color: #ffffff;
   border: #a66cff;
@@ -269,14 +266,13 @@ i{
   margin-left: 0px;
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-right:20px;
+  margin-right: 20px;
 }
 
-#jogar{
+#jogar {
   margin: 20px;
   width: 200px;
   font-size: 18px;
-  background-color: #00F836;
-  color:black;
+  background-color: #00f836;
+  color: black;
 }
-

@@ -144,7 +144,11 @@ a {
     drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+<<<<<<< HEAD
 /*Histórico e Ranking de Partidas*/
+=======
+/*Histórico de Partidas*/
+>>>>>>> a63065636fbc96e54899b4b6ac1f315e7b6362d4
 .historico{
   padding: 50px;
   border: 1px solid;
@@ -186,6 +190,7 @@ a {
   line-height: 58px;
 }
 
+<<<<<<< HEAD
 i{
   font-size: 48px;
   color:#5B4B8A;
@@ -194,13 +199,18 @@ i{
 
 /*Editar Perfil*/
 
+=======
+>>>>>>> a63065636fbc96e54899b4b6ac1f315e7b6362d4
 .editarPerfil input{
   margin-top:  10px;
   margin-bottom:  10px;
 
 }
+<<<<<<< HEAD
 
 /*Modo de Jogo*/
+=======
+>>>>>>> a63065636fbc96e54899b4b6ac1f315e7b6362d4
 .modoJogo h3{
   font-family: "Lato", sans-serif;
   text-align: center;

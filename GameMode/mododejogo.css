@@ -32,6 +32,7 @@ input[type=button]{
     background-color: #5B4B8A ;
     border-radius: 60px;
     border: none;
+<<<<<<< HEAD
     height: 50%;
     width: 100%;
     margin: 10px;
@@ -43,6 +44,18 @@ input[type=button]:hover{
     background-color: #00F836 ;
 }
 
+=======
+    height: auto;
+    width: 100%;
+    margin: 10px;
+    color: white;
+    font-size: 16px;
+}
+input[type=button]:hover{
+    background-color: #00F836 ;
+
+}
+>>>>>>> a63065636fbc96e54899b4b6ac1f315e7b6362d4
 a{
     background-color: #5B4B8A ;
     border-radius: 60px;
@@ -51,7 +64,11 @@ a{
     width: 100%;
     margin: 10px;
     color: white;
+<<<<<<< HEAD
     font-size: 32px;
+=======
+    font-size: 16px;
+>>>>>>> a63065636fbc96e54899b4b6ac1f315e7b6362d4
     display: flex;
     flex-direction: row;
     justify-content: center;

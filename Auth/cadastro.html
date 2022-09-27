@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <link href="style.css" rel="stylesheet">
     <!--Importando a fonte Lato-->
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <!--Importando a fonte Lemon-->
-    <link href="//fonts.googleapis.com/css?family=Lemon" rel="stylesheet" type="text/css" />
+    <link href="//fonts.googleapis.com/css?family=Lemon" rel="stylesheet" type="text/css">
+    <link rel="icon" href="../Assets/Tabuleiro.png" type="image/x-icon">   
     <title>Cadastro</title>
+
 </head>
 
 <body>
@@ -18,15 +22,16 @@
         <!--JOGO-->
         <div class="coluna1">
             <h2>Jogo da Memória</h2>
-            <img src="img\jogo.png" alt="">
+            <img src="../Assets/tabuleiro.png" alt="tabuleiro jogo">
         </div>
+
         <form action="post">
             <h2>Cadastre-se</h2>
             <div class="nome">
                 <input type="text" name="nome" placeholder="nome completo">
             </div>
             <div class="nascimento">
-                <input type="date" name="nascimento" placeholder="data de nascimento">
+                <input type="date" name="nascimento">
             </div>
             <div class="cpf">
                 <input type="text" name="cpf" placeholder="CPF">
@@ -44,10 +49,13 @@
                 <input type="password" name="senha" placeholder="senha">
             </div>
             <div class="botao">
-                <button>Entrar</button>
+                <button onclick="location.href='../Auth/login.html'" type="button">Entrar</button>
             </div>
 
         </form>
 
     </div>
+
 </body>
+
+</html>

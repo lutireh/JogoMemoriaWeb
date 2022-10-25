@@ -1,0 +1,26 @@
+@import "./style/general.css";
+
+.cadastro {
+  margin-top: 25px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.cadastro .coluna1 h2 {
+  font-family: Lemon;
+}
+.cadastro .coluna1 img {
+  height: 207px;
+  width: 200px;
+}
+
+.cadastro input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.cadastro button {
+  width: 200px;
+}

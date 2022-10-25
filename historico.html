@@ -4,17 +4,36 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="style.css" rel="stylesheet">
+    <link href="./style/general.css" rel="stylesheet">
+    <link href="./style/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <script src="https://kit.fontawesome.com/cb2d5d7b81.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="../Assets/Tabuleiro.png" type="image/x-icon">
+    <link rel="icon" href="./assets/tabuleiro.png" type="image/x-icon">
     <title>Histórico</title>
 </head>
 
 <body>
-    <a href="../GameMode/mododejogo.html"><i class="fa-solid fa-house"></i></a>
+    <header>
+        <div class="menu">
+            <a href="javascript:window.history.go(-1)">
+                <i class="fa-solid fa-angles-left"></i>
+            </a>
+            <div class="dropdown">
+                <i id="dropbtn" class="fa-solid fa-bars"></i>
+                <div class="dropdown-content">
+                    <a href="mododejogo.html">Modo de Jogo</a>
+                    <a href="editarPerfil.html">Editar Perfil</a>
+                    <a href="historico.html">Histórico</a>
+                    <a href="index.html">Sair</a>
+                </div>
+            </div>
+        </div>
+    </header>
     <div class="historico">
-        <h1>Histórico de Partidas</h1>
+        <header>
+            <h1>Histórico de Partidas</h1>
+        </header>
         <table>
             <tr>
                 <th>Nome do Jogador</th>
@@ -65,6 +84,11 @@
 
         </table>
     </div>
+    <footer>
+        <section>
+            <p>Criado por: Pedro Trama Fernandes Pereira, Heloisie Marcelli Santos Silva, Luiza Tirelli Rehbein e Marcelo Teixeira Drumond.</p>
+        </section>
+    </footer>
 </body>
 
 </html>

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="./style/general.css" rel="stylesheet">
-    <link href="./style/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./style/general.css">
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <script src="https://kit.fontawesome.com/cb2d5d7b81.js" crossorigin="anonymous"></script>
@@ -30,17 +30,51 @@
             </div>
         </div>
     </header>
-    <main>
-        <div class="ranking">
+    <div class="ranking">
+        <main>
             <h1>Ranking Global</h1>
-            <table>
-                <tr class="colunaOpcao">
-                    <td>2x2</td>
-                    <td>4x4</td>
-                    <td>6x6</td>
-                    <td>8x8</td>
-                </tr>
-            </table>
+            <div class="conteiner">
+                <div class="row">
+                    <div class="radio-container">
+                        <label for="2x2">
+                            <input type="radio" id="2x2" name="radio2" />
+                            <div class="custom-radio">
+                                <span class="checkmark"></span>
+                            </div>
+                            <span>2x2</span>
+                        </label>
+                    </div>
+
+                    <div class="radio-container">
+                        <label for="4x4">
+                            <input type="radio" id="4x4" name="radio2" />
+                            <div class="custom-radio">
+                                <span class="checkmark"></span>
+                            </div>
+                            <span>4x4</span>
+                        </label>
+                    </div>
+
+                    <div class="radio-container">
+                        <label for="6x6">
+                            <input type="radio" id="6x6" name="radio2" />
+                            <div class="custom-radio">
+                                <span class="checkmark"></span>
+                            </div>
+                            <span>6x6</span>
+                        </label>
+                    </div>
+                    <div class="radio-container">
+                        <label for="8x8">
+                            <input type="radio" id="8x8" name="radio2" />
+                            <div class="custom-radio">
+                                <span class="checkmark"></span>
+                            </div>
+                            <span>8x8</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
             <table>
                 <tr>
                     <th>Nome do Jogador</th>
@@ -109,8 +143,8 @@
                     <td>2m34s</td>
                 </tr>
             </table>
-        </div>
-    </main>
+        </main>
+    </div>
     <footer>
         <section>
             <p>Criado por: Pedro Trama Fernandes Pereira, Heloisie Marcelli Santos Silva, Luiza Tirelli Rehbein e Marcelo Teixeira Drumond.</p>

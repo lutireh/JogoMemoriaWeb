@@ -13,25 +13,6 @@ main {
   padding: 1%;
 }
 
-.conteiner {
-  border: 4px solid #5b4b8a;
-  border-radius: 60px;
-  flex-direction: column;
-  align-items: center;
-  padding: 2%;
-  margin: 10%;
-  margin-top: 1%;
-  margin-bottom: 2%;
-}
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1%;
-  text-align: center;
-  margin: 2%;
-}
 .modoJogo button {
   background-color: #a66cff;
   color: #ffffff;

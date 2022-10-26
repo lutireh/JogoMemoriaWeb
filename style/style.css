@@ -43,6 +43,7 @@
   font-size: 35px;
   line-height: 58px;
 }
+
 .cadastro input,
 .login input {
   width: 100%;
@@ -60,6 +61,7 @@
 .login input {
   font-size: 14px;
 }
+
 .cadastro button,
 .login button {
   background-color: #a66cff;
@@ -74,6 +76,7 @@
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
     drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
+
 .login main .forgot {
   margin: 20px;
   line-height: 29px;
@@ -87,8 +90,8 @@
 
 .editarPerfil input {
   font-size: 14px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .historico,
@@ -97,4 +100,8 @@
   border: 1px solid;
   margin-left: 20%;
   margin-right: 20%;
+}
+
+.ranking .container {
+  padding: 0;
 }

@@ -46,6 +46,7 @@ i {
 header .menu {
   margin-right: 60%;
 }
+
 #dropbtn {
   background-color: #a66cff;
   border-radius: 50%;
@@ -111,6 +112,7 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: bold;
   color: white;
+  margin: auto;
 }
 
 .icones {
@@ -218,9 +220,29 @@ td {
 }
 
 /* Radio Buttons */
+.conteiner {
+  border: 4px solid #5b4b8a;
+  border-radius: 60px;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  margin: 10%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1%;
+  text-align: center;
+}
 
 .radio-container {
-  padding: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }
 
 input[type="radio"] {
@@ -231,24 +253,25 @@ input[type="radio"] {
 .radio-container label {
   display: flex;
   align-items: center;
-  column-gap: 5%;
+  column-gap: 4%;
   font-size: 20px;
-  color: black;
+  color: #5b4b8a;
 }
 
 .custom-radio {
-  border: 1px solid #5b4b8a;
-  width: 36px;
-  height: 36px;
+  border: 2px solid #5b4b8a;
+  width: 2em;
+  height: 2em;
   display: grid;
   place-content: center;
-  border-radius: 100%;
+  border-radius: 90%;
+  margin-right: 3%;
 }
 
 .custom-radio,
 span {
   transition: 0.5s ease;
-  color: black;
+  color: #5b4b8a;
 }
 
 .custom-radio span {
@@ -256,12 +279,12 @@ span {
   width: 16px;
   height: 16px;
   background: #fff;
-  border: 1px solid #5b4b8a;
-  border-radius: 100%;
+  border: 2px solid #5b4b8a;
+  border-radius: 90%;
 }
 
 input[type="radio"]:checked + .custom-radio {
-  border-color: #ac70f9;
+  border-color: #5b4b8a;
 }
 
 input[type="radio"]:checked + .custom-radio span {

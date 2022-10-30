@@ -14,25 +14,78 @@ main {
   width: 50vw;
 }
 
+img {
+  height: 80%;
+}
+
 .board {
   display: grid;
   align-items: center;
+  justify-content: center;
   grid-template-columns: auto auto;
-  grid-column-gap: 10px;
   grid-column-gap: 10px;
   padding: 5%;
   background-color: #5b4b8a;
   opacity: 50%;
   height: 100%;
   border-radius: 10px;
+  z-index: -1;
+  grid-template-columns: repeat(8, 1fr);
 }
+
 .piece {
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
+  background-color: purple;
+  height: 80%;
+}
+
+.board,
+.piece {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+/*.piece {
   border-style: solid;
   border-color: black;
   border-radius: 10px;
   background-color: purple;
   opacity: 100%;
   height: 80%;
+}*/
+
+.piece:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.piece.flip {
+  transform: rotateY(180deg);
+}
+
+.back-piece {
+  background-color: purple;
+}
+.front-piece {
+  background-color: #fff;
+  opacity: 100%;
+}
+
+.front-piece,
+.back-piece {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.front-piece {
+  transform: rotateY(180deg);
 }
 
 .timmer {

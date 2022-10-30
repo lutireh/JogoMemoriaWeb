@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <link href="./style/general.css" rel="stylesheet">
     <link href="./style/style.css" rel="stylesheet">
+    <script src="./js/auth/login.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-    <link href="//fonts.googleapis.com/css?family=Lemon" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/cb2d5d7b81.js" crossorigin="anonymous"></script>
     <link rel="icon" href="./assets/tabuleiro.png" type="image/x-icon">
     <title>Login</title>
 </head>
@@ -32,12 +32,12 @@
                 <div class="senha">
                     <input type="password" name="senha" id="senha" placeholder="senha">
                 </div>
-                <button onclick="location.href='mododejogo.html'" type="button">Entrar</button>
-
-                <div class="forgot">
-                    <span>Não tem conta? <a href="cadastro.html">Cadastre-se</a></span>
-                </div>
             </form>
+            <button type="button" onclick="saveNames()" id="loginButton">Entrar</button>
+            <div class="forgot">
+                <span>Não tem conta? <a href="cadastro.html">Cadastre-se</a></span>
+            </div>
+
         </main>
 
     </div>

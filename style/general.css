@@ -1,4 +1,5 @@
-/*  */
+@import url("http://fonts.googleapis.com/css?family=Lato:400,700");
+@import url("http://fonts.googleapis.com/css?family=Lemon");
 *,
 *::before,
 *::after {
@@ -89,6 +90,7 @@ header .menu {
 .dropdown:hover #dropbtn {
   background-color: #5b4b8a;
 }
+
 footer {
   justify-content: space-around;
   font-size: 12px;

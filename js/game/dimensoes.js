@@ -20,7 +20,7 @@ function clickMe(event) {
   }
 
   if (!selectedGame || !selectedSize) {
-    alert("selecione os dois");
+    alert("Selecione os dois");
   } else {
     const selections = {
       selectedGame,
@@ -28,6 +28,6 @@ function clickMe(event) {
     };
 
     window.sessionStorage.setItem("selections", JSON.stringify(selections));
-    location.href = `${location.origin}/game.html`;
+    window.location.assign("game.html");
   }
 }

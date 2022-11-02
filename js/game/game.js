@@ -1,7 +1,5 @@
 const selections = window.sessionStorage.getItem("selections");
 
-console.log(selections);
-
 const { selectedGame, selectedSize } = JSON.parse(selections);
 
 let size;
@@ -70,7 +68,7 @@ for (let i = 0; i < size; i++) {
   const imagePath = aleatorizaImages();
   div.innerHTML += `<div class="piece" data-framework=${
     imagePath.split(".")[0]
-  }> <div class="back-piece"> </div><img class="front-piece" src="../../assets/gameImg/${imagePath}" alt="Frente da Carta"></div>`;
+  }> <div class="back-piece"> </div><img class="front-piece" src="./assets/gameImg/${imagePath}" alt="Frente da Carta"></div>`;
 }
 
 resetImages();
@@ -94,50 +92,57 @@ function resetImages() {
   });
 }
 
-const cards = document.querySelectorAll(".piece");
-let hasFlippedCard = false;
-let firstCard, secondCard;
+const piece = document.querySelectorAll(".piece");
+let hasFlippedPiece = false;
+let firstPiece, secondPiece;
 let lockBoard = false;
 
-function flipCard() {
+function flipPiece() {
   if (lockBoard) return;
-  if (this === firstCard) return;
-
+  if (this === firstPiece) return;
   this.classList.add("flip");
-
-  if (!hasFlippedCard) {
-    hasFlippedCard = true;
-    firstCard = this;
+  if (!hasFlippedPiece) {
+    hasFlippedPiece = true;
+    firstPiece = this;
     return;
   }
-  secondCard = this;
-  checkForMatch();
+  secondPiece = this;
+  check();
 }
 
-function checkForMatch() {
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+let cont = 0;
 
-  isMatch ? disableCards() : unflipCards();
+function check() {
+  let isMatch = firstPiece.dataset.framework === secondPiece.dataset.framework;
+  isMatch && cont++;
+  isMatch ? disablePiece() : unflipPiece();
+  vitory();
 }
 
-function disableCards() {
-  firstCard.removeEventListener("click", flipCard);
-  secondCard.removeEventListener("click", flipCard);
+function vitory() {
+  if (cont == size / 2) {
+    alert("Você ganhou!");
+  }
+}
+
+function disablePiece() {
+  firstPiece.removeEventListener("click", flipPiece);
+  secondPiece.removeEventListener("click", flipPiece);
   resetBoard();
 }
 
-function unflipCards() {
+function unflipPiece() {
   lockBoard = true;
   setTimeout(() => {
-    firstCard.classList.remove("flip");
-    secondCard.classList.remove("flip");
+    firstPiece.classList.remove("flip");
+    secondPiece.classList.remove("flip");
     resetBoard();
   }, 1500);
 }
 
 function resetBoard() {
-  [hasFlippedCard, lockBoard] = [false, false];
-  [firstCard, secondCard] = [null, null];
+  [hasFlippedPiece, lockBoard] = [false, false];
+  [firstPiece, secondPiece] = [null, null];
 }
 
-cards.forEach((card) => card.addEventListener("click", flipCard));
+piece.forEach((piece) => piece.addEventListener("click", flipPiece));

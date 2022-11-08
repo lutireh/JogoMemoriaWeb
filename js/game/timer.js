@@ -2,15 +2,11 @@ var seconds;
 var minutes;
 var gamemodeTimer;
 var totalTime = 0; 
-const gameMode = window.sessionStorage.getItem("gameMode");
+const gameMode = window.sessionStorage.getItem("gameMode").toString();
 
-
-// tem que arrumar isso do contraTempo
-// se tiver marcado contraTempo no radio, ele roda a funcao timer
-// se não, ele deixa invisivel a tag do timer
-//tudo isso ta no mododejogo.html
 console.log(gameMode)
-if (gameMode=="timmer"){
+if (gameMode== 1){
+    console.log("entrou")
     timer();
 }else{
     document.getElementById("timer").style.visibility = "hidden";

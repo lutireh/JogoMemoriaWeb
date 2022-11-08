@@ -2,10 +2,10 @@ const contraTempo = document.getElementById("contraTempo");
 console.log(contraTempo)
 contraTempo.addEventListener("change",()=>{
     if(contraTempo.checked){
-        gameMode="timmer"
-        window.sessionStorage.setItem("gameMode", JSON.stringify(gameMode));
+        gameMode= 1
+        window.sessionStorage.setItem("gameMode", gameMode);
     }else{
-        gameMode="classical"
-        window.sessionStorage.setItem("gameMode", JSON.stringify(gameMode));
+        gameMode= 2
+        window.sessionStorage.setItem("gameMode", gameMode);
     }
 })

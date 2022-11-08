@@ -68,9 +68,8 @@ for (let i = 0; i < size; i++) {
   if (i === 0) imagesToGame = images.slice(0, size / 2);
 
   const imagePath = aleatorizaImages();
-  div.innerHTML += `<div class="piece" data-framework=${
-    imagePath.split(".")[0]
-  }> <div class="back-piece"> </div><img class="front-piece" src="./assets/gameImg/${imagePath}" alt="Frente da Carta"></div>`;
+  div.innerHTML += `<div class="piece" data-framework=${imagePath.split(".")[0]
+    }> <div class="back-piece"> </div><img class="front-piece" src="./assets/gameImg/${imagePath}" alt="Frente da Carta"></div>`;
 }
 
 resetImages();
@@ -146,9 +145,18 @@ function resetBoard() {
   [hasFlippedPiece, lockBoard] = [false, false];
   [firstPiece, secondPiece] = [null, null];
 }
-
 piece.forEach((piece) => piece.addEventListener("click", flipPiece));
 
+const cheat = document.getElementById("cheat"); 
+toggleOn=false;
+cheat.addEventListener("click", ()=>{
+  if(toggleOn){
+    piece.forEach((piece)=> piece.classList.remove("flip"))
+  }else{
+    piece.forEach((piece)=> piece.classList.add("flip"))
+  }
+  toggleOn=!toggleOn;
+})
+
+
 // function cheat(){
-// virar todas peças ao mesmo tempo quando clicar na caveira
-// }

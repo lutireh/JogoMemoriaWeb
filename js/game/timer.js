@@ -16,8 +16,6 @@ if (gameMode=="timmer"){
     document.getElementById("timer").style.visibility = "hidden";
 }
 
-timer();
-
 //NÃO MEXE DAQUI PRA BAIXO
 function timer() {
         document.getElementById('timer').innerText = '00:00'

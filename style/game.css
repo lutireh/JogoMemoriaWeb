@@ -18,6 +18,11 @@ img {
   height: 80%;
 }
 
+button{
+  border-color:transparent;
+
+}
+
 .board {
   display: grid;
   align-items: center;

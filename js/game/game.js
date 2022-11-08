@@ -4,39 +4,41 @@ const { selectedGame, selectedSize } = JSON.parse(selections);
 
 let size;
 
+//eu acho que aqui tem que mexe no game.css pra deixar as fontes de tamanho dinamico
+//mas fora isso ta tudo certo
 const images = [
-  ["baleia.png", 2],
-  ["bambi.png", 2],
-  ["cacto.jpg", 2],
-  ["cavalo.png", 2],
-  ["coala.png", 2],
-  ["coelho.png", 2],
-  ["coruja.png", 2],
-  ["dino.png", 2],
-  ["dog.png", 2],
-  ["elefante.png", 2],
-  ["espinho.png", 2],
-  ["foca.png", 2],
-  ["galinha.jpg", 2],
-  ["gato.png", 2],
-  ["gatoDormindo.png", 2],
-  ["girafa.png", 2],
-  ["girafaClose.png", 2],
-  ["leao.png", 2],
-  ["lula.png", 2],
-  ["macaco.png", 2],
-  ["ovelha.png", 2],
-  ["panda.png", 2],
-  ["passaro.png", 2],
-  ["pintinho.png", 2],
-  ["porco.png", 2],
-  ["preguica.png", 2],
-  ["raposa.png", 2],
-  ["touro.png", 2],
-  ["urso.png", 2],
-  ["ursoFit.png", 2],
-  ["vaca.png", 2],
-  ["zebra.png", 2],
+  ["anchor-solid.svg", 2],
+  ["baby-solid.svg", 2],
+  ["car-solid.svg", 2],
+  ["droplet-solid.svg", 2],
+  ["envelope-solid.svg", 2],
+  ["flag-solid.svg", 2],
+  ["gopuram-solid.svg", 2],
+  ["hammer-solid.svg", 2],
+  ["landmark-solid.svg", 2],
+  ["mountain-sun-solid.svg", 2],
+  ["person-dress-solid.svg", 2],
+  ["person-solid.svg", 2],
+  ["plug-solid.svg", 2],
+  ["radiation-solid.svg", 2],
+  ["radio-solid.svg", 2],
+  ["school-solid.svg", 2],
+  ["seedling-solid.svg", 2],
+  ["ship-solid.svg", 2],
+  ["shirt-solid.svg", 2],
+  ["shop-solid.svg", 2],
+  ["shower-solid.svg", 2],
+  ["snowflake-solid.svg", 2],
+  ["stethoscope-solid.svg", 2],
+  ["truck-front-solid.svg", 2],
+  ["truck-solid.svg", 2],
+  ["vihara-solid.svg", 2],
+  ["virus-covid-solid.svg", 2],
+  ["virus-solid.svg", 2],
+  ["volcano-solid.svg", 2],
+  ["wheat-awn-solid.svg", 2],
+  ["wheelchair-solid.svg", 2],
+  ["wind-solid.svg", 2],
 ];
 let imagesToGame = [];
 const main = document.querySelector("main");
@@ -146,3 +148,7 @@ function resetBoard() {
 }
 
 piece.forEach((piece) => piece.addEventListener("click", flipPiece));
+
+// function cheat(){
+// virar todas peças ao mesmo tempo quando clicar na caveira
+// }

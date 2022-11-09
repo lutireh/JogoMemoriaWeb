@@ -1,0 +1,37 @@
+@import "./style/general.css";
+
+main {
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modoJogo {
+  width: 50%;
+  align-items: center;
+  padding: 1%;
+}
+
+.modoJogo button {
+  background-color: #a66cff;
+  color: #ffffff;
+  text-align: center;
+  width: 200px;
+  height: 40px;
+  box-shadow: 0 0 0 #000000;
+  border-radius: 10px;
+  padding-left: 10%;
+  padding-right: 10%;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
+    drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+h1 {
+  font-size: 35px;
+  padding: 0;
+}
+h2 {
+  font-size: 24px;
+  line-height: 20px;
+  padding: 0;
+}

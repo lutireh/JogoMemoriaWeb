@@ -3,7 +3,6 @@ const selections = window.sessionStorage.getItem("selections");
 const { selectedGame, selectedSize } = JSON.parse(selections);
 
 let size;
-
 //ícones das peças
 const images = [
   ["anchor-solid.svg", 2],
@@ -157,12 +156,10 @@ piece.forEach((piece) => piece.addEventListener("click", flipPiece));
 const cheat = document.getElementById("cheat");
 toggleOn = false;
 cheat.addEventListener("click", () => {
-  if (!victory) {
     if (toggleOn) {
       piece.forEach((piece) => piece.classList.remove("flip"))
     } else {
       piece.forEach((piece) => piece.classList.add("flip"))
     }
     toggleOn = !toggleOn;
-  }
 })

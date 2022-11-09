@@ -72,7 +72,7 @@ for (let i = 0; i < size; i++) {
   const imagePath = aleatorizaImages();
   div.innerHTML += `<div class="piece" data-framework=${imagePath.split(".")[0]
     }> <div class="back-piece"> </div><img class="front-piece" id="piece" src="./assets/gameImg/${imagePath}" alt="Frente da Carta"></div>`;
-  }
+}
 
 resetImages();
 
@@ -154,13 +154,15 @@ function resetBoard() {
 piece.forEach((piece) => piece.addEventListener("click", flipPiece));
 
 //função de trapaça para virar todas as peças
-const cheat = document.getElementById("cheat"); 
-toggleOn=false;
-cheat.addEventListener("click", ()=>{
-  if(toggleOn){
-    piece.forEach((piece)=> piece.classList.remove("flip"))
-  }else{
-    piece.forEach((piece)=> piece.classList.add("flip"))
+const cheat = document.getElementById("cheat");
+toggleOn = false;
+cheat.addEventListener("click", () => {
+  if (!victory) {
+    if (toggleOn) {
+      piece.forEach((piece) => piece.classList.remove("flip"))
+    } else {
+      piece.forEach((piece) => piece.classList.add("flip"))
+    }
+    toggleOn = !toggleOn;
   }
-  toggleOn=!toggleOn;
 })

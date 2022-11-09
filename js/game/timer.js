@@ -6,9 +6,7 @@ var totalTime = 0;
 const gameMode = window.sessionStorage.getItem("gameMode").toString();
 
 //verificar o modo de jogo
-console.log(gameMode)
 if (gameMode== 1){
-    console.log("entrou")
     timer();
 }else{
     document.getElementById("timer").style.visibility = "hidden";

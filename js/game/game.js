@@ -122,11 +122,11 @@ function check() {
   let isMatch = firstPiece.dataset.framework === secondPiece.dataset.framework;
   isMatch && cont++;
   isMatch ? disablePiece() : unflipPiece();
-  vitory();
+  victory();
 }
 
 //condição de vitória
-function vitory() {
+function victory() {
   if (cont == size / 2) {
     alert("Você ganhou!");
   }

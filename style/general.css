@@ -201,10 +201,6 @@ table {
   border: #000;
 }
 
-tr {
-  line-height: auto;
-}
-
 td {
   background-color: #a66cff;
   color: #ffffff;

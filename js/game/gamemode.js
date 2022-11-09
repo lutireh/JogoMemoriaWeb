@@ -1,3 +1,4 @@
+//verificar o modo de jogo do usuário
 const contraTempo = document.getElementById("contraTempo");
 console.log(contraTempo)
 contraTempo.addEventListener("change",()=>{

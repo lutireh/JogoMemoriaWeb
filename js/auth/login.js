@@ -1,8 +1,10 @@
+//pegar os dados do usuario
 const usuario = document.getElementById("usuario");
 const senha = document.getElementById("senha");
 let usuario1 = usuario.value,
   senha1 = senha.value;
 
+//permissão para o usuário entrar no jogo
 const loginButton = document.getElementById("loginButton");
 loginButton.addEventListener("click", (event) => {
   event.preventDefault();

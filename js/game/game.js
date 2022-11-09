@@ -4,8 +4,7 @@ const { selectedGame, selectedSize } = JSON.parse(selections);
 
 let size;
 
-//eu acho que aqui tem que mexe no game.css pra deixar as fontes de tamanho dinamico
-//mas fora isso ta tudo certo
+//ícones das peças
 const images = [
   ["anchor-solid.svg", 2],
   ["baby-solid.svg", 2],
@@ -37,11 +36,13 @@ const images = [
   ["virus-solid.svg", 2],
   ["volcano-solid.svg", 2],
   ["wheat-awn-solid.svg", 2],
-  ["wheelchair-solid.svg", 2],
+  ["wheelchair-move-solid.svg", 2],
   ["wind-solid.svg", 2],
 ];
 let imagesToGame = [];
 const main = document.querySelector("main");
+
+//montando o tabuleiro
 if (selectedSize == "2x2") {
   size = 4;
   main.innerHTML +=
@@ -63,17 +64,19 @@ if (selectedSize == "8x8") {
     '<div class="board" id="board" style="grid-template-columns: repeat(8, 1fr);"></div>';
 }
 
+//colocando as peças
 const div = document.getElementById("board");
 for (let i = 0; i < size; i++) {
   if (i === 0) imagesToGame = images.slice(0, size / 2);
 
   const imagePath = aleatorizaImages();
   div.innerHTML += `<div class="piece" data-framework=${imagePath.split(".")[0]
-    }> <div class="back-piece"> </div><img class="front-piece" src="./assets/gameImg/${imagePath}" alt="Frente da Carta"></div>`;
-}
+    }> <div class="back-piece"> </div><img class="front-piece" id="piece" src="./assets/gameImg/${imagePath}" alt="Frente da Carta"></div>`;
+  }
 
 resetImages();
 
+//randomizando as peças
 function aleatorizaImages() {
   let flag = true;
   let random;
@@ -98,6 +101,7 @@ let hasFlippedPiece = false;
 let firstPiece, secondPiece;
 let lockBoard = false;
 
+//virar as peças
 function flipPiece() {
   if (lockBoard) return;
   if (this === firstPiece) return;
@@ -113,14 +117,16 @@ function flipPiece() {
 
 let cont = 0;
 
+//verificando se as peças são iguais
 function check() {
   let isMatch = firstPiece.dataset.framework === secondPiece.dataset.framework;
   isMatch && cont++;
   isMatch ? disablePiece() : unflipPiece();
-  vitory();
+  victory();
 }
 
-function vitory() {
+//condição de vitória
+function victory() {
   if (cont == size / 2) {
     alert("Você ganhou!");
   }
@@ -147,6 +153,7 @@ function resetBoard() {
 }
 piece.forEach((piece) => piece.addEventListener("click", flipPiece));
 
+//função de trapaça para virar todas as peças
 const cheat = document.getElementById("cheat"); 
 toggleOn=false;
 cheat.addEventListener("click", ()=>{
@@ -157,6 +164,3 @@ cheat.addEventListener("click", ()=>{
   }
   toggleOn=!toggleOn;
 })
-
-
-// function cheat(){

@@ -1,18 +1,18 @@
+//timer para o modo de jogo contra o tempo
 var seconds;
 var minutes;
 var gamemodeTimer;
 var totalTime = 0; 
 const gameMode = window.sessionStorage.getItem("gameMode").toString();
 
-console.log(gameMode)
+//verificar o modo de jogo
 if (gameMode== 1){
-    console.log("entrou")
     timer();
 }else{
     document.getElementById("timer").style.visibility = "hidden";
 }
 
-//NÃO MEXE DAQUI PRA BAIXO
+//timer funcionando
 function timer() {
         document.getElementById('timer').innerText = '00:00'
         gamemodeTimer = setInterval(() => {

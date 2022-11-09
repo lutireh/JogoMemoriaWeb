@@ -1,5 +1,9 @@
 @import "./style/general.css";
 
+html{
+  font-size: 100%;
+}
+
 header {
   display: flex;
   flex-direction: row;

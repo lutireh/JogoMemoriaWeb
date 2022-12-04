@@ -3,6 +3,7 @@
 <html lang="pt-br">
 
 <head>
+    <?php include('protecao.php'); ?>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./style/general.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
@@ -21,12 +22,13 @@
             <div class="dropdown">
                 <i id="dropbtn" class="fa-solid fa-bars"></i>
                 <div class="dropdown-content">
-                    <a href="mododejogo.html">Modo de Jogo</a>
-                    <a href="editarPerfil.html">Editar Perfil</a>
-                    <a href="historico.html">Histórico</a>
-                    <a href="index.html">Sair</a>
+                    <a href="mododejogo.php">Modo de Jogo</a>
+                    <a href="editarPerfil.php">Editar Perfil</a>
+                    <a href="historico.php">Histórico</a>
+                    <a href="logout.php">Sair</a>
                 </div>
             </div>
+            <?php echo ("Logado Como: ".$_SESSION['nome']); ?>
         </div>
     </header>
     <div class="ranking">

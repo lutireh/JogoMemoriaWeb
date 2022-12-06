@@ -69,8 +69,9 @@ for (let i = 0; i < size; i++) {
   if (i === 0) imagesToGame = images.slice(0, size / 2);
 
   const imagePath = aleatorizaImages();
-  div.innerHTML += `<div class="piece" data-framework=${imagePath.split(".")[0]
-    }> <div class="back-piece"> </div><img class="front-piece" id="piece" src="./assets/gameImg/${imagePath}" alt="Frente da Carta"></div>`;
+  div.innerHTML += `<div class="piece" data-framework=${
+    imagePath.split(".")[0]
+  }> <div class="back-piece"> </div><img class="front-piece" id="piece" src="./assets/gameImg/${imagePath}" alt="Frente da Carta"></div>`;
 }
 
 resetImages();
@@ -128,13 +129,11 @@ function check() {
 function victory() {
   return new Promise((resolve) => {
     if (cont == size / 2) {
-        alert("Você ganhou!");
-        resolve({victory:true});
+      alert("Você ganhou!");
+      resolve({ victory: true });
     }
-  })
+  });
 }
-
-
 
 function disablePiece() {
   firstPiece.removeEventListener("click", flipPiece);
@@ -162,12 +161,12 @@ const cheat = document.getElementById("cheat");
 toggleOn = false;
 cheat.addEventListener("click", () => {
   if (toggleOn) {
-    piece.forEach((piece) => piece.classList.remove("flip"))
+    piece.forEach((piece) => piece.classList.remove("flip"));
   } else {
-    piece.forEach((piece) => piece.classList.add("flip"))
+    piece.forEach((piece) => piece.classList.add("flip"));
   }
   toggleOn = !toggleOn;
-})
+});
 
 function saveTime() {
   let xhttp = new XMLHttpRequest();
@@ -176,11 +175,11 @@ function saveTime() {
 
   let timer = document.getElementById("timer");
 
-  let endGameTime = {time:timer.textContent};
+  let endGameTime = { time: timer.textContent };
 
   xhttp.open("POST", url);
 
-  xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+  xhttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
 
   try {
     xhttp.send(JSON.stringify(endGameTime));

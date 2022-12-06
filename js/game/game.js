@@ -172,7 +172,7 @@ cheat.addEventListener("click", () => {
 function saveTime() {
   let xhttp = new XMLHttpRequest();
 
-  let url = "selections.php";
+  let url = "time.php";
 
   let timer = document.getElementById("timer");
 

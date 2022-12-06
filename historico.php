@@ -3,7 +3,12 @@
 <html lang="pt-br">
 
 <head>
-    <?php include('protecao.php'); ?>
+    <?php
+    include('protecao.php');
+    include('conexao.php');
+    $sql_select_partidas = "SELECT * FROM partida WHERE pessoa_id = '$_SESSION[pessoa_id]' ORDER BY partida_id DESC";
+    $result = $pdo->query($sql_select_partidas);
+    ?>
     <meta charset="UTF-8">
     <link href="./style/general.css" rel="stylesheet">
     <link href="./style/style.css" rel="stylesheet">
@@ -37,48 +42,20 @@
                 <h1>Histórico de Partidas</h1>
             </header>
             <table>
-                <tr>
-                    <th>Nome do Jogador</th>
-                    <th>Tam. Tabuleiro</th>
-                    <th>Modo de Jogo</th>
-                    <th>Tempo</th>
-                    <th>Resultado</th>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                    <td>Vitória</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                    <td>Vitória</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                    <td>Vitória</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                    <td>Vitória</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                    <td>Vitória</td>
-                </tr>
+                <?php
+                if ($result->rowCount() >= 1) {
+                    echo "<tr><th>Nome do Jogador</th><th>Tam. Tabuleiro</th><th>Modo de Jogo</th><th>Tempo</th></tr>";
+                    while ($dados = $result->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<tr>";
+                        echo "<td>$_SESSION[nome]</td>";
+                        echo "<td>$dados[tam_tabuleiro]</td>";
+                        echo "<td>$dados[modo_jogo]</td>";
+                        echo "<td>$dados[tempo_partida]</td>";
+                        echo "<td>Vitoria</td>";
+                    }
+                } else
+                    echo ("<br><br><h2>Não Possui Jogos</h2><br><br>");
+                ?>
             </table>
         </main>
     </div>

@@ -3,7 +3,10 @@
 <html lang="pt-br">
 
 <head>
-    <?php include('protecao.php'); ?>
+    <?php 
+    include('protecao.php');
+    include('conexao.php');
+    ?>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./style/general.css">
     <link rel="stylesheet" type="text/css" href="./style/style.css">
@@ -34,11 +37,12 @@
     <div class="ranking">
         <main>
             <h1>Ranking Global</h1>
+            <form action="" method="post">
             <div class="conteiner">
                 <div class="row">
                     <div class="radio-container">
                         <label for="2x2">
-                            <input type="radio" id="2x2" name="radio2" />
+                            <input type="radio" id="2x2" name="radio2" value="2x2"/>
                             <div class="custom-radio">
                                 <span class="checkmark"></span>
                             </div>
@@ -48,7 +52,7 @@
 
                     <div class="radio-container">
                         <label for="4x4">
-                            <input type="radio" id="4x4" name="radio2" />
+                            <input type="radio" id="4x4" name="radio2" value="4x4" />
                             <div class="custom-radio">
                                 <span class="checkmark"></span>
                             </div>
@@ -58,7 +62,7 @@
 
                     <div class="radio-container">
                         <label for="6x6">
-                            <input type="radio" id="6x6" name="radio2" />
+                            <input type="radio" id="6x6" name="radio2" value="6x6" />
                             <div class="custom-radio">
                                 <span class="checkmark"></span>
                             </div>
@@ -67,7 +71,7 @@
                     </div>
                     <div class="radio-container">
                         <label for="8x8">
-                            <input type="radio" id="8x8" name="radio2" />
+                            <input type="radio" id="8x8" name="radio2" value="8x8" />
                             <div class="custom-radio">
                                 <span class="checkmark"></span>
                             </div>
@@ -75,74 +79,28 @@
                         </label>
                     </div>
                 </div>
+                <button type="submit">Listar</button>
             </div>
+            </form>
             <table>
-                <tr>
-                    <th>Nome do Jogador</th>
-                    <th>Tam. Tabuleiro</th>
-                    <th>Modo de Jogo</th>
-                    <th>Tempo</th>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                </tr>
-                <tr>
-                    <td>Marcelo Drumond</td>
-                    <td>4x4</td>
-                    <td>Clássico</td>
-                    <td>2m34s</td>
-                </tr>
+                <?php
+                if (isset($_POST['radio2'])) {
+                    echo "<tr>$_POST[radio2]</tr>";
+                    echo "<tr><th>Nome do Jogador</th><th>Tam. Tabuleiro</th><th>Modo de Jogo</th><th>Tempo</th></tr>";
+                    $sql_select_ranking = "SELECT nome, tam_tabuleiro, modo_jogo, tempo_partida FROM pessoa pe INNER JOIN partida p ON pe.pessoa_id=p.pessoa_id WHERE tam_tabuleiro = '$_POST[radio2]' ORDER BY tempo_partida ASC";
+                    $result = $pdo->query($sql_select_ranking);
+                    while ($dados = $result->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<tr>";
+                        echo "<td>$dados[nome]</td>";
+                        echo "<td>$dados[tam_tabuleiro]</td>";
+                        echo "<td>$dados[modo_jogo]</td>";
+                        echo "<td>$dados[tempo_partida]</td>";
+                        echo "</tr>";
+                    }
+                }
+                else
+                    echo "<br><br><br><h1>SELECIONE O TAMANHO DO TABULEIRO</h1><br><br><br>";
+                ?>
             </table>
         </main>
     </div>

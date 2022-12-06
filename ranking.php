@@ -86,20 +86,24 @@
                 <?php
                 if (isset($_POST['radio2'])) {
                     echo "<tr>$_POST[radio2]</tr>";
-                    echo "<tr><th>Nome do Jogador</th><th>Tam. Tabuleiro</th><th>Modo de Jogo</th><th>Tempo</th></tr>";
                     $sql_select_ranking = "SELECT nome, tam_tabuleiro, modo_jogo, tempo_partida FROM pessoa pe INNER JOIN partida p ON pe.pessoa_id=p.pessoa_id WHERE tam_tabuleiro = '$_POST[radio2]' ORDER BY tempo_partida ASC";
                     $result = $pdo->query($sql_select_ranking);
-                    while ($dados = $result->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<tr>";
-                        echo "<td>$dados[nome]</td>";
-                        echo "<td>$dados[tam_tabuleiro]</td>";
-                        echo "<td>$dados[modo_jogo]</td>";
-                        echo "<td>$dados[tempo_partida]</td>";
-                        echo "</tr>";
-                    }
+                    if ($result->rowCount() > 0) {
+                        echo "<tr><th>Nome do Jogador</th><th>Tam. Tabuleiro</th><th>Modo de Jogo</th><th>Tempo(Min/Seg/Decimos)</th></tr>";
+                        while ($dados = $result->fetch(PDO::FETCH_ASSOC)) {
+                            echo "<tr>";
+                            echo "<td>$dados[nome]</td>";
+                            echo "<td>$dados[tam_tabuleiro]</td>";
+                            echo "<td>$dados[modo_jogo]</td>";
+                            echo "<td>$dados[tempo_partida]</td>";
+                            echo "</tr>";
+                        }
+                    } 
+                    else if ($result->rowCount() == 0) {
+                        echo ("<br><br><h2>Nao Possui Partidas Ainda</h2><br><br>");
+                    } else
+                        echo "<br><br><br><h1>SELECIONE O TAMANHO DO TABULEIRO</h1><br><br><br>";
                 }
-                else
-                    echo "<br><br><br><h1>SELECIONE O TAMANHO DO TABULEIRO</h1><br><br><br>";
                 ?>
             </table>
         </main>

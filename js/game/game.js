@@ -121,15 +121,20 @@ function check() {
   let isMatch = firstPiece.dataset.framework === secondPiece.dataset.framework;
   isMatch && cont++;
   isMatch ? disablePiece() : unflipPiece();
-  victory();
+  victory().then(saveTime);
 }
 
 //condição de vitória
 function victory() {
-  if (cont == size / 2) {
-    alert("Você ganhou!");
-  }
+  return new Promise((resolve) => {
+    if (cont == size / 2) {
+        alert("Você ganhou!");
+        resolve({victory:true});
+    }
+  })
 }
+
+
 
 function disablePiece() {
   firstPiece.removeEventListener("click", flipPiece);
@@ -156,10 +161,30 @@ piece.forEach((piece) => piece.addEventListener("click", flipPiece));
 const cheat = document.getElementById("cheat");
 toggleOn = false;
 cheat.addEventListener("click", () => {
-    if (toggleOn) {
-      piece.forEach((piece) => piece.classList.remove("flip"))
-    } else {
-      piece.forEach((piece) => piece.classList.add("flip"))
-    }
-    toggleOn = !toggleOn;
+  if (toggleOn) {
+    piece.forEach((piece) => piece.classList.remove("flip"))
+  } else {
+    piece.forEach((piece) => piece.classList.add("flip"))
+  }
+  toggleOn = !toggleOn;
 })
+
+function saveTime() {
+  let xhttp = new XMLHttpRequest();
+
+  let url = "selections.php";
+
+  let timer = document.getElementById("timer");
+
+  let endGameTime = {tempo:timer.textContent};
+
+  xhttp.open("POST", url);
+
+  xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+  try {
+    xhttp.send(JSON.stringify(endGameTime));
+  } catch (err) {
+    alert("Request failed");
+  }
+}

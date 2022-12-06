@@ -176,7 +176,7 @@ function saveTime() {
 
   let timer = document.getElementById("timer");
 
-  let endGameTime = {tempo:timer.textContent};
+  let endGameTime = {time:timer.textContent};
 
   xhttp.open("POST", url);
 

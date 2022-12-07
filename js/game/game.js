@@ -2,6 +2,8 @@ const selections = window.sessionStorage.getItem("selections");
 
 const { selectedGame, selectedSize } = JSON.parse(selections);
 
+let pontos = 0;
+
 let size;
 //ícones das peças
 const images = [
@@ -67,7 +69,6 @@ if (selectedSize == "8x8") {
 const div = document.getElementById("board");
 for (let i = 0; i < size; i++) {
   if (i === 0) imagesToGame = images.slice(0, size / 2);
-
   const imagePath = aleatorizaImages();
   div.innerHTML += `<div class="piece" data-framework=${
     imagePath.split(".")[0]
@@ -138,6 +139,7 @@ function victory() {
 
 function disablePiece() {
   points();
+  document.getElementById("points").innerText = "Pontuação: " + pontos;
   firstPiece.classList.add("active");
   if (!firstPiece.classList.contains("flip")) firstPiece.classList.add("flip");
   firstPiece.removeEventListener("click", flipPiece);
@@ -150,6 +152,7 @@ function disablePiece() {
 
 function unflipPiece() {
   points(true);
+  document.getElementById("points").innerText = "Pontuação: " + pontos;
   lockBoard = true;
   setTimeout(() => {
     firstPiece.classList.remove("flip");
@@ -193,28 +196,33 @@ cheat.addEventListener("click", () => {
 
 function saveTime() {
   let xhttp = new XMLHttpRequest();
-
   let url = "time.php";
-
   let timer = document.getElementById("timer");
-
   let endGameTime = { time: timer.textContent };
-
   xhttp.open("POST", url);
-
   xhttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
-
   try {
     xhttp.send(JSON.stringify(endGameTime));
   } catch (err) {
     alert("Request failed");
   }
 }
-let pontos = 0;
 
 function points(missMatch) {
   switch (size) {
     case 4:
+      if (selectedGame == "contraTempo") {
+        missMatch ? (pontos -= 1) : (pontos += 4);
+        if (pontos < 0) pontos = 0;
+        return pontos;
+      } else {
+        missMatch ? (pontos -= 1) : (pontos += 2);
+        if (pontos < 0) pontos = 0;
+        return pontos;
+      }
+      break;
+
+    case 16:
       if (selectedGame == "contraTempo") {
         missMatch ? (pontos -= 1) : (pontos += 8);
         if (pontos < 0) pontos = 0;
@@ -225,36 +233,24 @@ function points(missMatch) {
         return pontos;
       }
       break;
-
-    case 16:
-      if (selectedGame == "contraTempo") {
-        missMatch ? (pontos -= 1) : (pontos += 32);
-        if (pontos < 0) pontos = 0;
-        return pontos;
-      } else {
-        missMatch ? (pontos -= 1) : (pontos += 16);
-        if (pontos < 0) pontos = 0;
-        return pontos;
-      }
-      break;
     case 36:
       if (selectedGame == "contraTempo") {
-        missMatch ? (pontos -= 1) : (pontos += 72);
+        missMatch ? (pontos -= 1) : (pontos += 12);
         if (pontos < 0) pontos = 0;
         return pontos;
       } else {
-        missMatch ? (pontos -= 1) : (pontos += 36);
+        missMatch ? (pontos -= 1) : (pontos += 8);
         if (pontos < 0) pontos = 0;
         return pontos;
       }
       break;
     case 64:
       if (selectedGame == "contraTempo") {
-        missMatch ? (pontos -= 1) : (pontos += 128);
+        missMatch ? (pontos -= 1) : (pontos += 20);
         if (pontos < 0) pontos = 0;
         return pontos;
       } else {
-        missMatch ? (pontos -= 1) : (pontos += 72);
+        missMatch ? (pontos -= 1) : (pontos += 12);
         if (pontos < 0) pontos = 0;
         return pontos;
       }

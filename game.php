@@ -39,6 +39,7 @@
             ?>
         </div>
         <p class="timer" id="timer">00:00</p>
+        <p class="points" id="points"></p>
         <div class="links">
             <span class="icones">Trapaça</span>
             <i class="fa-solid fa-skull fa-2x margin-top" id="cheat"></i>

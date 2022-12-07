@@ -109,5 +109,12 @@
 }
 
 .ranking .container {
-  padding: 0;
+  flex-direction: column;
+  padding: 2%;
+}
+
+#gamemode {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

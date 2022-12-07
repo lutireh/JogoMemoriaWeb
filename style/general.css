@@ -218,7 +218,7 @@ td {
 }
 
 /* Radio Buttons */
-.conteiner {
+.container {
   border: 4px solid #5b4b8a;
   border-radius: 60px;
   flex-direction: column;

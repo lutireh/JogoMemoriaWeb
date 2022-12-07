@@ -2,9 +2,9 @@
 <html lang="pt-br">
 
 <head>
-    <?php 
-        include('protecao.php'); 
-        include('conexao.php');
+    <?php
+    include('protecao.php');
+    include('conexao.php');
     ?>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./style/general.css">
@@ -33,19 +33,19 @@
                     <a href="logout.php">Sair</a>
                 </div>
             </div>
-            <?php echo ("Logado Como: ".$_SESSION['nome']); ?>
+            <?php echo ("Logado Como: " . $_SESSION['nome']); ?>
         </div>
     </header>
     <div class="modoJogo">
         <main>
             <form action="" method="post">
                 <h1>Jogo da Memória</h1>
-                <div class="conteiner">
+                <div class="container">
                     <h2>Modo de Jogo</h2>
                     <div class="row">
                         <div class="radio-container">
                             <label for="classico">
-                                <input type="radio" id="classico" name="radio" value="classico"/>
+                                <input type="radio" id="classico" name="radio" value="classico" />
                                 <div class="custom-radio">
                                     <span class="checkmark"></span>
                                 </div>
@@ -64,12 +64,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="conteiner">
+                <div class="container">
                     <h2>Tamanho do Tabuleiro</h2>
                     <div class="row">
                         <div class="radio-container" id="modoRadio2">
                             <label for="2x2">
-                                <input type="radio" id="2x2" name="radio2" value="2x2"/>
+                                <input type="radio" id="2x2" name="radio2" value="2x2" />
                                 <div class="custom-radio">
                                     <span class="checkmark"></span>
                                 </div>
@@ -79,7 +79,7 @@
 
                         <div class="radio-container" id="modoRadio4">
                             <label for="4x4">
-                                <input type="radio" id="4x4" name="radio2" value="4x4"/>
+                                <input type="radio" id="4x4" name="radio2" value="4x4" />
                                 <div class="custom-radio">
                                     <span class="checkmark"></span>
                                 </div>
@@ -98,7 +98,7 @@
                         </div>
                         <div class="radio-container" id="modoRadio8">
                             <label for="8x8">
-                                <input type="radio" id="8x8" name="radio2" value="8x8"/>
+                                <input type="radio" id="8x8" name="radio2" value="8x8" />
                                 <div class="custom-radio">
                                     <span class="checkmark"></span>
                                 </div>
@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </form>
-            <button  type="button" onclick="clickMe()">Jogar</button>
+            <button type="button" onclick="clickMe()">Jogar</button>
         </main>
     </div>
 

@@ -55,7 +55,7 @@
 
                         <div class="radio-container">
                             <label for="contraTempo">
-                                <input type="radio" id="contraTempo" value="contraTempo" name="radio" data-time />
+                                <input type="radio" id="contraTempo" value="Contra_Tempo" name="radio" data-time />
                                 <div class="custom-radio">
                                     <span class="checkmark"></span>
                                 </div>

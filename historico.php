@@ -44,14 +44,15 @@
             <table>
                 <?php
                 if ($result->rowCount() >= 1) {
-                    echo "<tr><th>Nome do Jogador</th><th>Tam. Tabuleiro</th><th>Modo de Jogo</th><th>Tempo</th></tr>";
+                    echo "<tr><th>Nome do Jogador</th><th>Tam. Tabuleiro</th><th>Modo de Jogo</th><th>Tempo</th><th>pontuação</th><th>Status</th></tr>";
                     while ($dados = $result->fetch(PDO::FETCH_ASSOC)) {
                         echo "<tr>";
                         echo "<td>$_SESSION[nome]</td>";
                         echo "<td>$dados[tam_tabuleiro]</td>";
                         echo "<td>$dados[modo_jogo]</td>";
                         echo "<td>$dados[tempo_partida]</td>";
-                        echo "<td>Vitoria</td>";
+                        echo "<td>$dados[pontuacao]</td>";
+                        echo "<td>$dados[status]</td>";
                     }
                 } else
                     echo ("<br><br><h2>Não Possui Jogos</h2><br><br>");

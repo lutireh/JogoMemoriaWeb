@@ -198,11 +198,17 @@ function saveTime() {
   let xhttp = new XMLHttpRequest();
   let url = "time.php";
   let timer = document.getElementById("timer");
-  let endGameTime = { time: timer.textContent };
+  let endGameTime = timer.textContent;
+  let points = document.getElementById("points");
+  let winningpoints= points.textContent.replace("Pontuação: ","");
+  let endGameResults={
+    time: endGameTime,
+    points: winningpoints
+  }
   xhttp.open("POST", url);
   xhttp.setRequestHeader("Content-type", "application/json; charset=utf-8");
   try {
-    xhttp.send(JSON.stringify(endGameTime));
+    xhttp.send(JSON.stringify(endGameResults));
   } catch (err) {
     alert("Request failed");
   }

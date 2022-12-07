@@ -79,30 +79,101 @@
                             </label>
                         </div>
                     </div>
-                    <button type="submit">Listar</button>
                 </div>
+                <div class="conteiner">
+                    <div class="radio-container">
+                                <label for="classico">
+                                    <input type="radio" id="classico" name="radio_modo" value="classico" />
+                                    <div class="custom-radio">
+                                        <span class="checkmark"></span>
+                                    </div>
+                                    <span>Modo Classico </span>
+                                </label>
+                            </div>
+                    <div class="radio-container">
+                                <label for="contraTempo">
+                                    <input type="radio" id="contraTempo" name="radio_modo" value="contraTempo" />
+                                    <div class="custom-radio">
+                                        <span class="checkmark"></span>
+                                    </div>
+                                    <span>Modo Contra Tempo</span>
+                                </label>
+                            </div>
+                </div>
+                
+                <button type="submit">Listar</button>
             </form>
             <table>
                 <?php
-                if (isset($_POST['radio2'])) {
-                    echo "<tr>$_POST[radio2]</tr>";
-                    $sql_select_ranking = "SELECT nome, tam_tabuleiro, modo_jogo, tempo_partida FROM pessoa pe INNER JOIN partida p ON pe.pessoa_id=p.pessoa_id WHERE tam_tabuleiro = '$_POST[radio2]' ORDER BY tempo_partida ASC";
+                $numero = 1;
+                if (isset($_POST['radio2']) and isset($_POST['radio_modo'])) {
+                    echo "<br><tr><h3>$_POST[radio2] $_POST[radio_modo]</h3></tr>";
+                    if($_POST['radio_modo']=='classico'){
+                        $sql_select_ranking = "SELECT nome, tam_tabuleiro, modo_jogo, tempo_partida, pontuacao FROM pessoa pe INNER JOIN partida p ON pe.pessoa_id=p.pessoa_id WHERE tam_tabuleiro = '$_POST[radio2]' AND modo_jogo = 'classico' AND status !='Derrota' ORDER BY tempo_partida ASC LIMIT 10";
+                        $result = $pdo->query($sql_select_ranking);
+                        if ($result->rowCount() > 0) {
+                            echo "<tr><th>Indíce</th><th>Nome do Jogador</th><th>Tam. Tabuleiro</th><th>Modo de Jogo</th><th>Pontuação</th><th>Tempo(Min/Seg/Decimos)</th></tr>";
+                            while ($dados = $result->fetch(PDO::FETCH_ASSOC)) {
+                                echo "<tr>";
+                                echo "<td>$numero</td>";
+                                echo "<td>$dados[nome]</td>";
+                                echo "<td>$dados[tam_tabuleiro]</td>";
+                                echo "<td>$dados[modo_jogo]</td>";
+                                echo "<td>$dados[pontuacao]</td>";
+                                echo "<td>$dados[tempo_partida]</td>";
+                                echo "</tr>";
+                                $numero++;
+                            }
+                        } else 
+                            echo ("<br><br><h2>Nao Possui Partidas Ainda</h2><br><br>");
+                    }
+                    else if($_POST['radio_modo']=='contraTempo'){
+                        $sql_select_ranking = "SELECT nome, tam_tabuleiro, modo_jogo, tempo_partida, pontuacao FROM pessoa pe INNER JOIN partida p ON pe.pessoa_id=p.pessoa_id WHERE tam_tabuleiro = '$_POST[radio2]' AND modo_jogo = 'contraTempo' AND status !='Derrota' ORDER BY tempo_partida DESC LIMIT 10";
+                        $result = $pdo->query($sql_select_ranking);
+                        if ($result->rowCount() > 0) {
+                            echo "<tr><th>Indíce</th><th>Nome do Jogador</th><th>Tam. Tabuleiro</th><th>Modo de Jogo</th><th>Pontuação</th><th>Tempo Restante(M/S/D)</th></tr>";
+                            
+                            while ($dados = $result->fetch(PDO::FETCH_ASSOC)) {
+                                echo "<tr>";
+                                echo "<td>$numero</td>";
+                                echo "<td>$dados[nome]</td>";
+                                echo "<td>$dados[tam_tabuleiro]</td>";
+                                echo "<td>$dados[modo_jogo]</td>";
+                                echo "<td>$dados[pontuacao]</td>";
+                                echo "<td>$dados[tempo_partida]</td>";
+                                echo "</tr>";
+                                $numero++;
+                            }
+                        } 
+                        else
+                            echo ("<br><br><h2>Nao Possui Partidas Ainda</h2><br><br>");
+
+                    }   
+                } 
+                else if(isset($_POST['radio2']) and !isset($_POST['radio_modo'])){
+                    $sql_select_ranking = "SELECT nome, tam_tabuleiro, modo_jogo, tempo_partida, pontuacao FROM pessoa pe INNER JOIN partida p ON pe.pessoa_id=p.pessoa_id WHERE tam_tabuleiro = '$_POST[radio2]' AND status !='Derrota' ORDER BY tempo_partida ASC LIMIT 10";
                     $result = $pdo->query($sql_select_ranking);
-                    if ($result->rowCount() > 0) {
-                        echo "<tr><th>Nome do Jogador</th><th>Tam. Tabuleiro</th><th>Modo de Jogo</th><th>Tempo(Min/Seg/Decimos)</th></tr>";
-                        while ($dados = $result->fetch(PDO::FETCH_ASSOC)) {
-                            echo "<tr>";
-                            echo "<td>$dados[nome]</td>";
-                            echo "<td>$dados[tam_tabuleiro]</td>";
-                            echo "<td>$dados[modo_jogo]</td>";
-                            echo "<td>$dados[tempo_partida]</td>";
-                            echo "</tr>";
-                        }
-                    } else if ($result->rowCount() == 0) {
-                        echo ("<br><br><h2>Nao Possui Partidas Ainda</h2><br><br>");
-                    } else
-                        echo "<br><br><br><h1>SELECIONE O TAMANHO DO TABULEIRO</h1><br><br><br>";
-                }
+                        if ($result->rowCount() > 0) {
+                            echo "<tr><th>Indíce</th><th>Nome do Jogador</th><th>Tam. Tabuleiro</th><th>Modo de Jogo</th><th>Pontuação</th><th>Tempo (M/S/D)</th></tr>";
+                            
+                            while ($dados = $result->fetch(PDO::FETCH_ASSOC)) {
+                                echo "<tr>";
+                                echo "<td>$numero</td>";
+                                echo "<td>$dados[nome]</td>";
+                                echo "<td>$dados[tam_tabuleiro]</td>";
+                                echo "<td>$dados[modo_jogo]</td>";
+                                echo "<td>$dados[pontuacao]</td>";
+                                echo "<td>$dados[tempo_partida]</td>";
+                                echo "</tr>";
+                                $numero++;
+                            }
+                        } 
+                        else
+                            echo ("<br><br><h2>Nao Possui Partidas Ainda</h2><br><br>");
+
+                } else
+                    echo ("Selecione o tamanho do tabuleiro(caso queira filtrar por modo de jogo, selecione-o)");
+                    
                 ?>
             </table>
         </main>

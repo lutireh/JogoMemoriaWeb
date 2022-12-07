@@ -8,7 +8,8 @@ $tam_tabuleiro = $object->{'selectedGame'};
 $modo_jogo = $object->{'selectedSize'};
 
 if(isset($tam_tabuleiro) and isset($modo_jogo)){
-    $sql_insert_partida = "INSERT INTO partida VALUES ('$_SESSION[pessoa_id]',NULL,'$tam_tabuleiro','$modo_jogo',NULL, 0,'Derrota')";
+    $data = date('d/m/Y H:i', time());
+    $sql_insert_partida = "INSERT INTO partida VALUES ('$_SESSION[pessoa_id]',NULL,'$tam_tabuleiro','$modo_jogo',NULL, 0,'Derrota','$data')";
     $pdo->query($sql_insert_partida);
 }
 ?>

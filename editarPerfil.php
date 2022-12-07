@@ -3,7 +3,7 @@
 <html lang="pt-br">
 
 <head>
-    <?php 
+    <?php
     include('protecao.php');
     include('conexao.php');
     ?>
@@ -32,46 +32,46 @@
                     <a href="logout.php">Sair</a>
                 </div>
             </div>
-            <?php echo ("Logado Como: ".$_SESSION['nome']); ?>
+            <?php echo ("Logado Como: " . $_SESSION['nome']); ?>
         </div>
     </header>
     <div class="editarPerfil">
         <main>
-        <?php
-            if(isset($_POST['nome']) and isset($_POST['telefone']) and isset($_POST['email']) and isset($_POST['senha']) and isset($_POST['usuario'])){
+            <?php
+            if (isset($_POST['nome']) and isset($_POST['telefone']) and isset($_POST['email']) and isset($_POST['senha']) and isset($_POST['usuario'])) {
                 $sql_select_pessoa = "SELECT * FROM pessoa WHERE usuario ='$_POST[usuario]'";
                 $sql_query = $pdo->query($sql_select_pessoa);
                 $dados = $sql_query->fetch(PDO::FETCH_ASSOC);
                 if ($sql_query->rowCount() >= 1)
                     echo ("<h3>Usuario ja existente, por favor mude</h3>");
-                else{
+                else {
                     $sql_update_pessoa = "UPDATE pessoa SET nome = '$_POST[nome]', usuario = '$_POST[usuario]', senha = '$_POST[senha]', telefone = '$_POST[telefone]', email='$_POST[email]' WHERE pessoa_id = '$_SESSION[pessoa_id]'";
                     $result = $pdo->query($sql_update_pessoa);
                     header('Location: index.php');
                 }
             }
-        ?>
+            ?>
             <form action="editarPerfil.php" method="POST" name="formularioEditaPerfil">
                 <header>
                     <h2>Editar Perfil</h2>
                 </header>
                 <div class="nome">
-                    <input type="text" name="nome" id="nome" placeholder="nome completo">
+                    <input type="text" name="nome" id="nome" required placeholder="nome completo">
                 </div>
                 <div class="telefone">
-                    <input type="text" name="telefone" id="telefone" placeholder="telefone">
+                    <input type="text" name="telefone" id="telefone" required placeholder="telefone">
                 </div>
                 <div class="email">
-                    <input type="text" name="email" id="email" placeholder="email">
+                    <input type="text" name="email" id="email" required placeholder="email">
                 </div>
                 <div class="usuario">
-                    <input type="password" name="usuario" id="usuario" placeholder="usuario">
+                    <input type="password" name="usuario" id="usuario" required placeholder="usuario">
                 </div>
                 <div class="senha">
-                    <input type="password" name="senha" id="senha" placeholder="senha">
+                    <input type="password" name="senha" id="senha" required placeholder="senha">
                 </div>
-                    <button type="submit" >Salvar</button>
-                
+                <button type="submit">Salvar</button>
+
             </form>
         </main>
     </div>

@@ -3,7 +3,7 @@
 <html lang="pt-br">
 
 <head>
-    <?php 
+    <?php
     include('protecao.php');
     include('conexao.php');
     ?>
@@ -31,56 +31,56 @@
                     <a href="logout.php">Sair</a>
                 </div>
             </div>
-            <?php echo ("Logado Como: ".$_SESSION['nome']); ?>
+            <?php echo ("Logado Como: " . $_SESSION['nome']); ?>
         </div>
     </header>
-    <div class="ranking">
+    <section class="ranking">
         <main>
             <h1>Ranking Global</h1>
             <form action="" method="post">
-            <div class="conteiner">
-                <div class="row">
-                    <div class="radio-container">
-                        <label for="2x2">
-                            <input type="radio" id="2x2" name="radio2" value="2x2"/>
-                            <div class="custom-radio">
-                                <span class="checkmark"></span>
-                            </div>
-                            <span>2x2</span>
-                        </label>
-                    </div>
+                <div class="conteiner">
+                    <div class="row">
+                        <div class="radio-container">
+                            <label for="2x2">
+                                <input type="radio" id="2x2" name="radio2" value="2x2" />
+                                <div class="custom-radio">
+                                    <span class="checkmark"></span>
+                                </div>
+                                <span>2x2</span>
+                            </label>
+                        </div>
 
-                    <div class="radio-container">
-                        <label for="4x4">
-                            <input type="radio" id="4x4" name="radio2" value="4x4" />
-                            <div class="custom-radio">
-                                <span class="checkmark"></span>
-                            </div>
-                            <span>4x4</span>
-                        </label>
-                    </div>
+                        <div class="radio-container">
+                            <label for="4x4">
+                                <input type="radio" id="4x4" name="radio2" value="4x4" />
+                                <div class="custom-radio">
+                                    <span class="checkmark"></span>
+                                </div>
+                                <span>4x4</span>
+                            </label>
+                        </div>
 
-                    <div class="radio-container">
-                        <label for="6x6">
-                            <input type="radio" id="6x6" name="radio2" value="6x6" />
-                            <div class="custom-radio">
-                                <span class="checkmark"></span>
-                            </div>
-                            <span>6x6</span>
-                        </label>
+                        <div class="radio-container">
+                            <label for="6x6">
+                                <input type="radio" id="6x6" name="radio2" value="6x6" />
+                                <div class="custom-radio">
+                                    <span class="checkmark"></span>
+                                </div>
+                                <span>6x6</span>
+                            </label>
+                        </div>
+                        <div class="radio-container">
+                            <label for="8x8">
+                                <input type="radio" id="8x8" name="radio2" value="8x8" />
+                                <div class="custom-radio">
+                                    <span class="checkmark"></span>
+                                </div>
+                                <span>8x8</span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="radio-container">
-                        <label for="8x8">
-                            <input type="radio" id="8x8" name="radio2" value="8x8" />
-                            <div class="custom-radio">
-                                <span class="checkmark"></span>
-                            </div>
-                            <span>8x8</span>
-                        </label>
-                    </div>
+                    <button type="submit">Listar</button>
                 </div>
-                <button type="submit">Listar</button>
-            </div>
             </form>
             <table>
                 <?php
@@ -98,8 +98,7 @@
                             echo "<td>$dados[tempo_partida]</td>";
                             echo "</tr>";
                         }
-                    } 
-                    else if ($result->rowCount() == 0) {
+                    } else if ($result->rowCount() == 0) {
                         echo ("<br><br><h2>Nao Possui Partidas Ainda</h2><br><br>");
                     } else
                         echo "<br><br><br><h1>SELECIONE O TAMANHO DO TABULEIRO</h1><br><br><br>";
@@ -107,7 +106,7 @@
                 ?>
             </table>
         </main>
-    </div>
+    </section>
     <footer>
         <section>
             <p>Criado por: Pedro Trama Fernandes Pereira, Heloisie Marcelli Santos Silva, Luiza Tirelli Rehbein e Marcelo Teixeira Drumond.</p>

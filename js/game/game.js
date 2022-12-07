@@ -99,7 +99,7 @@ function resetImages() {
 const piece = document.querySelectorAll(".piece");
 let hasFlippedPiece = false;
 let firstPiece, secondPiece;
-let lockBoard = false;
+var lockBoard = false;
 
 //virar as peças
 function flipPiece() {
@@ -129,19 +129,27 @@ function check() {
 function victory() {
   return new Promise((resolve) => {
     if (cont == size / 2) {
-      alert("Você ganhou!");
-      resolve({ victory: true });
+      clearInterval(gamemodeTimer);
+      alert("Você ganhou! Total de " + pontos + " pontos");
+      return resolve({ victory: true });
     }
   });
 }
 
 function disablePiece() {
+  points();
+  firstPiece.classList.add("active");
+  if (!firstPiece.classList.contains("flip")) firstPiece.classList.add("flip");
   firstPiece.removeEventListener("click", flipPiece);
   secondPiece.removeEventListener("click", flipPiece);
+  secondPiece.classList.add("active");
+  if (!secondPiece.classList.contains("flip"))
+    secondPiece.classList.add("flip");
   resetBoard();
 }
 
 function unflipPiece() {
+  points(true);
   lockBoard = true;
   setTimeout(() => {
     firstPiece.classList.remove("flip");
@@ -161,10 +169,25 @@ const cheat = document.getElementById("cheat");
 toggleOn = false;
 cheat.addEventListener("click", () => {
   if (toggleOn) {
-    piece.forEach((piece) => piece.classList.remove("flip"));
+    piece.forEach((piece) => {
+      if (!piece.classList.contains("active")) piece.classList.remove("flip");
+      if (
+        piece.classList.contains("active") &&
+        !piece.classList.contains("flip")
+      )
+        piece.classList.add("flip");
+    });
   } else {
-    piece.forEach((piece) => piece.classList.add("flip"));
+    piece.forEach((piece) => {
+      if (!piece.classList.contains("active")) piece.classList.add("flip");
+      if (
+        piece.classList.contains("active") &&
+        !piece.classList.contains("flip")
+      )
+        piece.classList.add("flip");
+    });
   }
+
   toggleOn = !toggleOn;
 });
 
@@ -185,5 +208,58 @@ function saveTime() {
     xhttp.send(JSON.stringify(endGameTime));
   } catch (err) {
     alert("Request failed");
+  }
+}
+let pontos = 0;
+
+function points(missMatch) {
+  switch (size) {
+    case 4:
+      if (selectedGame == "contraTempo") {
+        missMatch ? (pontos -= 1) : (pontos += 8);
+        if (pontos < 0) pontos = 0;
+        return pontos;
+      } else {
+        missMatch ? (pontos -= 1) : (pontos += 4);
+        if (pontos < 0) pontos = 0;
+        return pontos;
+      }
+      break;
+
+    case 16:
+      if (selectedGame == "contraTempo") {
+        missMatch ? (pontos -= 1) : (pontos += 32);
+        if (pontos < 0) pontos = 0;
+        return pontos;
+      } else {
+        missMatch ? (pontos -= 1) : (pontos += 16);
+        if (pontos < 0) pontos = 0;
+        return pontos;
+      }
+      break;
+    case 36:
+      if (selectedGame == "contraTempo") {
+        missMatch ? (pontos -= 1) : (pontos += 72);
+        if (pontos < 0) pontos = 0;
+        return pontos;
+      } else {
+        missMatch ? (pontos -= 1) : (pontos += 36);
+        if (pontos < 0) pontos = 0;
+        return pontos;
+      }
+      break;
+    case 64:
+      if (selectedGame == "contraTempo") {
+        missMatch ? (pontos -= 1) : (pontos += 128);
+        if (pontos < 0) pontos = 0;
+        return pontos;
+      } else {
+        missMatch ? (pontos -= 1) : (pontos += 72);
+        if (pontos < 0) pontos = 0;
+        return pontos;
+      }
+      break;
+    default:
+      break;
   }
 }

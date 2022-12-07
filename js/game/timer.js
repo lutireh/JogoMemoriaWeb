@@ -1,6 +1,6 @@
 //timer para o modo de jogo contra o tempo
-var seconds;
-var minutes;
+var segundos;
+var minutos;
 var gamemodeTimer;
 var totalTime = 0;
 const gameMode = window.sessionStorage.getItem("gameMode").toString();
@@ -17,19 +17,18 @@ function timer() {
   document.getElementById("timer").innerText = "00:00";
   gamemodeTimer = setInterval(() => {
     const countTime = document.getElementById("timer");
-
     const newTime = countTime.innerText.split(":");
     const timeMin = parseInt(newTime[0]) + 1;
     const timeSec = parseInt(newTime[1]) + 1;
 
     if (newTime[1] >= 59) {
-      minutes = timeMin < 10 ? `0${timeMin}` : timeMin;
-      seconds = `00`;
+      minutos = timeMin < 10 ? `0${timeMin}` : timeMin;
+      segundos = `00`;
     } else {
-      minutes = newTime[0];
-      seconds = timeSec < 10 ? `0${timeSec}` : timeSec;
+      minutos = newTime[0];
+      segundos = timeSec < 10 ? `0${timeSec}` : timeSec;
     }
-    countTime.innerHTML = `${minutes}:${seconds}`;
+    countTime.innerHTML = `${minutos}:${segundos}`;
     totalTime++;
   }, 1000);
 }
@@ -38,96 +37,44 @@ function timer() {
 function timerContraTempo() {
   switch (selectedSize) {
     case "2x2":
-      document.getElementById("timer").innerText = "00:30";
-      gamemodeTimer = setInterval(() => {
-        const countTime = document.getElementById("timer");
-
-        const newTime = countTime.innerText.split(":");
-        const timeMin = parseInt(newTime[0]) - 1;
-        const timeSec = parseInt(newTime[1]) - 1;
-
-        if (newTime[1] === "00") {
-          minutes = timeMin < 10 ? `0${timeMin}` : timeMin;
-          seconds = `00`;
-        } else {
-          minutes = newTime[0];
-          seconds = timeSec < 10 ? `0${timeSec}` : timeSec;
-        }
-        countTime.innerHTML = `${minutes}:${seconds}`;
-        totalTime--;
-      }, 1000);
-
+      document.getElementById("timer").innerText = "00:05";
       break;
     case "4x4":
       document.getElementById("timer").innerText = "01:00";
-      gamemodeTimer = setInterval(() => {
-        const countTime = document.getElementById("timer");
-
-        const newTime = countTime.innerText.split(":");
-        const timeMin = parseInt(newTime[0]) - 1;
-        const timeSec = parseInt(newTime[1]) - 1;
-
-        if (newTime[1] === "00") {
-          minutes = timeMin < 10 ? `0${timeMin}` : timeMin;
-          seconds = `59`;
-        } else {
-          minutes = newTime[0];
-          seconds = timeSec < 10 ? `0${timeSec}` : timeSec;
-        }
-        countTime.innerHTML = `${minutes}:${seconds}`;
-        totalTime--;
-      }, 1000);
       break;
     case "6x6":
       document.getElementById("timer").innerText = "02:00";
-      gamemodeTimer = setInterval(() => {
-        const countTime = document.getElementById("timer");
-
-        const newTime = countTime.innerText.split(":");
-        const timeMin = parseInt(newTime[0]) - 1;
-        const timeSec = parseInt(newTime[1]) - 1;
-
-        if (newTime[1] === "00") {
-          minutes = timeMin < 10 ? `0${timeMin}` : timeMin;
-          seconds = `59`;
-        } else {
-          minutes = newTime[0];
-          seconds = timeSec < 10 ? `0${timeSec}` : timeSec;
-        }
-        countTime.innerHTML = `${minutes}:${seconds}`;
-        totalTime--;
-      }, 1000);
       break;
     case "8x8":
       document.getElementById("timer").innerText = "03:00";
-      gamemodeTimer = setInterval(() => {
-        const countTime = document.getElementById("timer");
-
-        const newTime = countTime.innerText.split(":");
-        const timeMin = parseInt(newTime[0]) - 1;
-        const timeSec = parseInt(newTime[1]) - 1;
-
-        if (newTime[1] === "00") {
-          minutes = timeMin < 10 ? `0${timeMin}` : timeMin;
-          seconds = `59`;
-        } else {
-          minutes = newTime[0];
-          seconds = timeSec < 10 ? `0${timeSec}` : timeSec;
-        }
-        countTime.innerHTML = `${minutes}:${seconds}`;
-        totalTime--;
-      }, 1000);
       break;
     default:
       break;
   }
+  gamemodeTimer = setInterval(() => {
+    const countTime = document.getElementById("timer");
+    const newTime = countTime.innerText.split(":");
+    const timeMin = parseInt(newTime[0]) - 1;
+    const timeSec = parseInt(newTime[1]) - 1;
+
+    if (newTime[1] === "00") {
+      minutos = timeMin < 10 ? `0${timeMin}` : timeMin;
+      segundos = `59`;
+    } else {
+      minutos = newTime[0];
+      segundos = timeSec < 10 ? `0${timeSec}` : timeSec;
+    }
+    countTime.innerHTML = `${minutos}:${segundos}`;
+    if (parseInt(minutos) === 0 && parseInt(segundos) === 0) {
+      alert("Você perdeu!");
+      lockBoard = true;
+      paraTempo();
+    }
+  }, 1000);
 }
 
 function paraTempo() {
-  if (parseInt(minutes) === 0 && parseInt(seconds) === 0) {
-    clearInterval(gamemodeTimer);
-    alert("Você perdeu!");
-  }
+  clearInterval(gamemodeTimer);
 }
 
 //Parcelas do código foram insipiradas em https://github.com/arthurgconti/SI401B-Projeto-CampoMinado/blob/main/js/CampoMinado/timer.js

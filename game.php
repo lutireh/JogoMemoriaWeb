@@ -31,11 +31,11 @@
                     <a href="logout.php">Sair</a>
                 </div>
             </div>
-            <?php echo ("Logado Como: ".$_SESSION['nome']); ?>
-            <?php 
+            <?php echo ("Logado Como: " . $_SESSION['nome']); ?>
+            <?php
             $body = file_get_contents("php://input");
-            $_SESSION["body"]=$body;
-            echo($_SESSION["body"]);
+            $_SESSION["body"] = $body;
+            echo ($_SESSION["body"]);
             ?>
         </div>
         <p class="timer" id="timer">00:00</p>
